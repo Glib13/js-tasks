@@ -1,6 +1,6 @@
 {
-  "name": "js-training",
-  "version": "0.9.1",
+  "name": "js-tasks",
+  "version": "0.0.0",
   "description": "JS training tasks",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
@@ -8,7 +8,6 @@
     "lint": "eslint .",
 		"format": "prettier -w ."
   },
-  "author": "GLEB",
   "license": "MIT",
   "devDependencies": {
     "mocha": "^2.3.4",
@@ -19,9 +18,5 @@
 		"eslint-plugin-prettier": "^3.4.0",
 		"husky": "^7.0.1",
 		"prettier": "^2.3.2"
-  },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/rolling-scopes-school/js-assignments.git"
   }
 }
