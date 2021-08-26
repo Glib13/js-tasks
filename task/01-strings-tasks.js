@@ -19,7 +19,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-	return value1 + value2;
+	return `${value1}${value2}`;
 }
 
 /**
@@ -65,7 +65,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-	return value.substr(7).replace('!','')
+	return value.slice(7, -1);
 }
 
 /**
@@ -109,7 +109,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-	return value.repeat(count)
+	return value.repeat(count);
 }
 
 /**
