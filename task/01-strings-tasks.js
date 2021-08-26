@@ -105,11 +105,11 @@ function removeLeadingAndTrailingWhitespaces(value) {
  * @return {string}
  *
  * @example
- *   'A', 5  => 'AAAAA'
+ *   'A',  5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-	throw new Error('Not implemented');
+	return value.repeat(count)
 }
 
 /**
