@@ -14,5 +14,7 @@ module.exports = {
 		indent: ['error', 'tab'],
 		quotes: ['error', 'single'],
 		'comma-dangle': ['error', 'always-multiline'],
+		semi: ['error', 'always'],
+		'comma-spacing': ['error', { before: false, after: true }],
 	},
 };
