@@ -20,7 +20,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-	return width*height;
+	return width * height;
 }
 
 /**
@@ -216,7 +216,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-	throw new Error('Not implemented');
+	const  valueTonum = Number(value);
+	return Number.isNaN(valueTonum) ? def : valueTonum;
 }
 
 module.exports = {
