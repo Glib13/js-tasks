@@ -51,8 +51,8 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-	return ((value1 / 2) + (value2 / 2) );
-}	
+	return value1 / 2 + value2 / 2;
+}
 
 /**
  * Returns a distance beetween two points by cartesian coordinates.
@@ -70,7 +70,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-	return Math.sqrt((x2-x1) * (x2-x1)+(y2-y1) * (y2-y1));
+	return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
 /**
@@ -78,7 +78,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *
  * @param {number} a
  * @param {number} b
- * @return {number}
+ * @return {number}	
  *
  * @example:
  *   5*x - 10 = 0    => 2
@@ -86,7 +86,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-	return  (b * -1) / a;
+	return (b * -1) / a;
 }
 
 /**
@@ -107,8 +107,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-	const calc =(Math.atan2(y2, x2) - Math.atan2(y1, x1));
-	return calc < 0 ? calc*-1: calc ;
+	const calc = Math.atan2(y2, x2) - Math.atan2(y1, x1);
+	return calc < 0 ? calc * -1 : calc;
 }
 
 /**
@@ -124,7 +124,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-	return (value % 10);
+	return value % 10;
 }
 
 /**
@@ -156,7 +156,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a, b, c) {
-	const res= (a * a) + (b * b) + (c * c);
+	const res = a * a + b * b + c * c;
 	return Math.sqrt(res);
 }
 
@@ -178,7 +178,7 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-	return Math.round(num / (10 ** pow)) * (10 ** pow);
+	return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
@@ -199,8 +199,7 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-	for (const i = 0; i < n; i+1)
-		if(n % i === 0) return false;
+	for (const i = 0; i < n; i + 1) if (n % i === 0) return false;
 	return n > 1;
 }
 
@@ -220,7 +219,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-	const  valueTonum = Number(value);
+	const valueTonum = Number(value);
 	return Number.isNaN(valueTonum) ? def : valueTonum;
 }
 
