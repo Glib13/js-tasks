@@ -78,7 +78,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *
  * @param {number} a
  * @param {number} b
- * @return {number}	
+ * @return {number}
  *
  * @example:
  *   5*x - 10 = 0    => 2
@@ -107,8 +107,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-	const calc = Math.atan2(y2, x2) - Math.atan2(y1, x1);
-	return calc < 0 ? calc * -1 : calc;
+	const angleBetweenVectors = Math.atan2(y2, x2) - Math.atan2(y1, x1);
+	return angleBetweenVectors < 0 ? angleBetweenVectors * -1 : angleBetweenVectors;
 }
 
 /**
@@ -156,8 +156,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a, b, c) {
-	const res = a * a + b * b + c * c;
-	return Math.sqrt(res);
+	return Math.sqrt(a * a + b * b + c * c);
 }
 
 /**
@@ -199,10 +198,13 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-	for (const i = 0; i < n; i + 1) if (n % i === 0) return false;
+	for (const i = 0; i < n; i + 1) {
+		if (n % i === 0) {
+			return false;
+		}
+	}
 	return n > 1;
 }
-
 /**
  * Tries to convert value to number and returns it if conversion was successfull;
  * otherwise returns default value passed as a second argument.
@@ -219,8 +221,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-	const valueTonum = Number(value);
-	return Number.isNaN(valueTonum) ? def : valueTonum;
+	const numValue = Number(value);
+	return Number.isNaN(numValue) ? def : numValue;
 }
 
 module.exports = {
