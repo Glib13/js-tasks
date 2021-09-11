@@ -198,12 +198,14 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-	for (const i = 0; i < n; i + 1) {
-		if (n % i === 0) {
+	let divider = 2;
+	while (divider <= Math.sqrt(n)) {
+		if (n % divider === 0) {
 			return false;
 		}
+		divider += 1;
 	}
-	return n > 1;
+	return true;
 }
 /**
  * Tries to convert value to number and returns it if conversion was successfull;
