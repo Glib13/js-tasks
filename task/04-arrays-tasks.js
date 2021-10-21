@@ -36,7 +36,9 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-	throw new Error('Not implemented');
+	let counter = -1;
+	 // eslint-disable-next-line no-return-assign
+	 return Array(len).fill(null).map(() => counter +=2);
 }
 
 /**
