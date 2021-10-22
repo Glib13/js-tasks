@@ -37,8 +37,8 @@ function findElement(arr, value) {
  */
 function generateOdds(len) {
 	let counter = -1;
-	 // eslint-disable-next-line no-return-assign
-	 return Array(len).fill(null).map(() => counter +=2);
+	// eslint-disable-next-line no-return-assign
+	return Array(len).fill(null).map(() => (counter += 2));
 }
 
 /**
@@ -68,8 +68,8 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-	const possArr = arr.filter(num => num > 0);
-	return possArr;
+	return  arr.filter((num) => num > 0);
+
 }
 
 /**
@@ -84,7 +84,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-	return arr.filter(element => typeof element === 'string');
+	return arr.filter((element) => typeof element === 'string');
 }
 
 /**
@@ -101,7 +101,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-	return arr.filter(element => !!element);
+	return arr.filter((element) => !!element);
 }
 
 /**
@@ -115,7 +115,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-	  return arr.map(element => element.toUpperCase());
+	return arr.map((element) => element.toUpperCase());
 }
 
 /**
@@ -129,8 +129,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-	
-	return arr.map(str => str.length);
+	return arr.map((str) => str.length);
 }
 
 /**
