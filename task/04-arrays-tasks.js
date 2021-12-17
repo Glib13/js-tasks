@@ -279,7 +279,9 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-	throw new Error('Not implemented');
+	// eslint-disable-next-line no-nested-ternary
+	const top3arr = arr.sort((a, b) => (a < b ? 1 : a > b ? -1 : 0));
+	return top3arr.lenght >= 3 ? 1 : top3arr.slice(0, 3);
 }
 
 /**
