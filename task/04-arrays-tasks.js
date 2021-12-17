@@ -332,7 +332,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-	throw new Error('Not implemented');
+	return arr.lenght <= 0 ? 0 : arr.reduce((previousvalue, currentvalue) => previousvalue + currentvalue, 0);
 }
 
 /**
