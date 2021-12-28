@@ -37,8 +37,12 @@ function findElement(arr, value) {
  */
 function generateOdds(len) {
 	let counter = -1;
-	// eslint-disable-next-line no-return-assign
-	return Array(len).fill(null).map(() => (counter += 2));
+	return (
+		Array(len)
+			.fill(null)
+			// eslint-disable-next-line no-return-assign
+			.map(() => (counter += 2))
+	);
 }
 
 /**
@@ -68,8 +72,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-	return  arr.filter((num) => num > 0);
-
+	return arr.filter((num) => num > 0);
 }
 
 /**
@@ -144,7 +147,7 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-	throw new Error('Not implemented');
+	return arr.splice(index, 0, item);
 }
 
 /**
@@ -158,7 +161,7 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-	throw new Error('Not implemented');
+	return arr.slice(0, n);
 }
 
 /**
@@ -172,7 +175,7 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-	throw new Error('Not implemented');
+	return arr.slice(-n);
 }
 
 /**
@@ -196,7 +199,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-	throw new Error('Not implemented');
+	return arr.join('\n');
 }
 
 /**
@@ -211,7 +214,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-	throw new Error('Not implemented');
+	return arr.map((item) => item * item);
 }
 
 /**
@@ -229,7 +232,9 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-	throw new Error('Not implemented');
+	let sum = 0;
+	// eslint-disable-next-line no-return-assign
+	return arr.map((currentvalue) => (sum += currentvalue));
 }
 
 /**
@@ -244,7 +249,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-	throw new Error('Not implemented');
+	return arr.filter((x, i) => i % 2);
 }
 
 /**
@@ -262,7 +267,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-	throw new Error('Not implemented');
+	return arr.flatMap((value, index) => Array.from({ length: index + 1 }).fill(value));
 }
 
 /**
@@ -279,7 +284,9 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-	throw new Error('Not implemented');
+	// eslint-disable-next-line no-nested-ternary
+	const top3arr = arr.sort((a, b) => (a < b ? 1 : a > b ? -1 : 0));
+	return top3arr.lenght >= 3 ? 1 : top3arr.slice(0, 3);
 }
 
 /**
@@ -296,7 +303,8 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-	throw new Error('Not implemented');
+	const filteredArr = arr.filter((item) => item >= 1 && typeof item === 'number');
+	return filteredArr.length;
 }
 
 /**
@@ -312,10 +320,52 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(arr) {
-	throw new Error('Not implemented');
-}
+/** const stringToNumberMap = new Map()
+    .set('zero', 0)
+    .set('one', 1)
+    .set('two', 2)
+    .set('three', 3)
+    .set('four', 4)
+    .set('five', 5)
+    .set('six', 6)
+    .set('seven', 7)
+    .set('eight', 8)
+    .set('nine', 9);
 
+function sortDigitNamesByNumericOrder(arr) {
+    return arr.sort((value1, value2) => {
+        const value1Num = stringToNumberMap.get(value1);
+        const value2Num = stringToNumberMap.get(value2);
+
+        return value1Num - value2Num;
+    });
+} */
+const numberToString = new Map()
+	.set('one', 1)
+	.set('two', 2)
+	.set('three', 3)
+	.set('four', 4)
+	.set('five', 5)
+	.set('six', 6)
+	.set('seven', 7)
+	.set('eight', 8)
+	.set('nine', 9)
+	.set('zero', 0);
+const stringToNumber = new Map()
+	.set(1, 'one')
+	.set(2, 'two')
+	.set(3, 'three')
+	.set(4, 'four')
+	.set(5, 'five')
+	.set(6, 'six')
+	.set(7, 'seven')
+	.set(8, 'eight')
+	.set(9, 'nine')
+	.set(0, 'zero');
+function sortDigitNamesByNumericOrder(arr) {
+	const numArr = arr.map((value) => numberToString.get(value)).sort((a, b) => a - b);
+	return numArr.map((value) => stringToNumber.get(value));
+}
 /**
  * Returns the sum of all items in the specified array of numbers
  *
@@ -329,7 +379,9 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-	throw new Error('Not implemented');
+	return arr.lenght <= 0
+		? 0
+		: arr.reduce((previousvalue, currentvalue) => previousvalue + currentvalue, 0);
 }
 
 /**
