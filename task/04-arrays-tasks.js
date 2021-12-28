@@ -317,10 +317,52 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(arr) {
-	throw new Error('Not implemented');
-}
+/** const stringToNumberMap = new Map()
+    .set('zero', 0)
+    .set('one', 1)
+    .set('two', 2)
+    .set('three', 3)
+    .set('four', 4)
+    .set('five', 5)
+    .set('six', 6)
+    .set('seven', 7)
+    .set('eight', 8)
+    .set('nine', 9);
 
+function sortDigitNamesByNumericOrder(arr) {
+    return arr.sort((value1, value2) => {
+        const value1Num = stringToNumberMap.get(value1);
+        const value2Num = stringToNumberMap.get(value2);
+
+        return value1Num - value2Num;
+    });
+} */
+const numberToString = new Map()
+	.set('one', 1)
+	.set('two', 2)
+	.set('three', 3)
+	.set('four', 4)
+	.set('five', 5)
+	.set('six', 6)
+	.set('seven', 7)
+	.set('eight', 8)
+	.set('nine', 9)
+	.set('zero', 0);
+const stringToNumber = new Map()
+	.set(1, 'one')
+	.set(2, 'two')
+	.set(3, 'three')
+	.set(4, 'four')
+	.set(5, 'five')
+	.set(6, 'six')
+	.set(7, 'seven')
+	.set(8, 'eight')
+	.set(9, 'nine')
+	.set(0, 'zero');
+function sortDigitNamesByNumericOrder(arr) {
+	const numArr = arr.map((value) => numberToString.get(value)).sort((a, b) => a - b);
+	return numArr.map((value) => stringToNumber.get(value));
+}
 /**
  * Returns the sum of all items in the specified array of numbers
  *
