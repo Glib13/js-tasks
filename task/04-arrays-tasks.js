@@ -37,8 +37,12 @@ function findElement(arr, value) {
  */
 function generateOdds(len) {
 	let counter = -1;
-	// eslint-disable-next-line no-return-assign
-	return Array(len).fill(null).map(() => (counter += 2));
+	return (
+		Array(len)
+			.fill(null)
+			// eslint-disable-next-line no-return-assign
+			.map(() => (counter += 2))
+	);
 }
 
 /**
@@ -68,8 +72,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-	return  arr.filter((num) => num > 0);
-
+	return arr.filter((num) => num > 0);
 }
 
 /**
@@ -246,7 +249,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-	return arr.filter((x, i) => i % 2 );
+	return arr.filter((x, i) => i % 2);
 }
 
 /**
@@ -264,7 +267,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-	return arr.flatMap((value, index) => Array.from({length: index + 1}).fill(value));
+	return arr.flatMap((value, index) => Array.from({ length: index + 1 }).fill(value));
 }
 
 /**
@@ -300,7 +303,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-	const filteredArr = arr.filter((item) => item >= 1 && typeof(item) === 'number');
+	const filteredArr = arr.filter((item) => item >= 1 && typeof item === 'number');
 	return filteredArr.length;
 }
 
@@ -376,7 +379,9 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-	return arr.lenght <= 0 ? 0 : arr.reduce((previousvalue, currentvalue) => previousvalue + currentvalue, 0);
+	return arr.lenght <= 0
+		? 0
+		: arr.reduce((previousvalue, currentvalue) => previousvalue + currentvalue, 0);
 }
 
 /**
